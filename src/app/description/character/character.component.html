@@ -1,0 +1,20 @@
+<div class="character-container" *ngIf="character">
+  <div class="character-name">{{ character.name }}</div>
+  <div class="character-info">
+    <img
+      [src]="character.image"
+      alt="{{ character.name }}"
+      class="character-image"
+    />
+    <div class="character-details">
+      <p>Status: {{ translateStatus(character.status) }}</p>
+      <p>Species: {{ character.species }}</p>
+      <p>Type: {{ character.type }}</p>
+      <p>Gender: {{ translateGender(character.gender) }}</p>
+      <p>Origin: {{ character.origin.name }}</p>
+      <p class="character-location">
+        Location: <a [routerLink]="['/location', character.location.url.split('/').pop()]">{{ character.location.name }}</a>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container" *ngIf="location">
+    <div class="container">
+      <h2>{{ location.name }}</h2>
+      <p>{{ location.type }}</p>
+      <p>{{ location.dimension }}</p>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div *ngFor="let character of characters" class="carousel-item">
+          <a [href]="'description/character/' + character.id">
+            <img [src]="character.image" [alt]="character.name" />
+            <p>{{ character.name }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

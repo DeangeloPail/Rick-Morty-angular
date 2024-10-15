@@ -1,0 +1,17 @@
+<div class="container" *ngIf="episode">
+  <div class="container">
+    <h2>{{ episode.name }}</h2>
+    <p>{{ episode.air_date }}</p>
+    <p>{{ episode.episode }}</p>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div *ngFor="let character of characters" class="carousel-item">
+        <a [href]="'description/character/' + character.id">
+          <img [src]="character.image" [alt]="character.name" />
+          <p>{{ character.name }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

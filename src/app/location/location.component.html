@@ -1,0 +1,20 @@
+<app-search (searchEvent)="onSearch($event)"></app-search>
+<div class="location-list">
+  <ng-container *ngIf="filteredLocations.length > 0; else noResults">
+    <a
+      [href]="'description/location/' + location.id"
+      class="location-item"
+      *ngFor="let location of filteredLocations"
+    >
+      <p>Name: {{ location.name }}</p>
+      <p>Tipo: {{ location.type }}</p>
+      <p>Dimensión: {{ location.dimension }}</p>
+    </a>
+  </ng-container>
+  <ng-template #noResults>
+    <p class="no-results">
+      wubba lubba dub dub <br />
+      No se encontraron resultados
+    </p>
+  </ng-template>
+</div>

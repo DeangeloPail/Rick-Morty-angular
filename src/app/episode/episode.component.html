@@ -1,0 +1,12 @@
+<app-search (searchEvent)="onSearch($event)"></app-search>
+<div class="episode-list">
+  <ng-container *ngIf="filteredEpisodes.length > 0; else noResults">
+    <a [href]="'description/episode/' + episode.id" class="episode-item" *ngFor="let episode of filteredEpisodes">
+      <p>Nombre: {{ episode.name }}</p>
+      <p>Episodio : {{episode.episode}} </p>
+    </a>
+  </ng-container>
+  <ng-template #noResults>
+    <p class="no-results">wubba lubba dub dub <br> No se encontraron resultados</p>
+  </ng-template>
+</div>

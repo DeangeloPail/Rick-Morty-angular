@@ -1,0 +1,43 @@
+
+<h1 class="title">Data - Rick & Morty</h1>
+
+<app-search (searchEvent)="onSearch($event)" ></app-search>
+<!-- personajes -->
+
+<h2 class="subtitle">Personajes de Rick & Morty</h2>
+
+<!-- Paginación -->
+<nav *ngIf="!searchTerm" aria-label="Page navigation example" class="pagination-container">
+  <ul class="inline-flex text-sm">
+    <li>
+      <a href="#" (click)="onPageChange(pageIndex - 1)" class="pagination-link rounded-s-lg" [class.disabled]="pageIndex === 0">Previous</a>
+    </li>
+    <li *ngFor="let page of getPageNumbers()">
+      <a href="#" (click)="onPageChange(page - 1)" [ngClass]="{ 'current': page === (pageIndex + 1) }" class="pagination-link">{{ page }}</a>
+    </li>
+    <li>
+      <a href="#" (click)="onPageChange(pageIndex + 1)" class="pagination-link rounded-e-lg" [class.disabled]="(pageIndex + 1) * pageSize >= filteredCharacters.length">Next</a>
+    </li>
+  </ul>
+</nav>
+
+<section class="section-character">
+  <div class="gallery">
+    <!-- Lista de personajes filtrados y paginados -->
+    <ng-container *ngIf="paginatedCharacters.length > 0; else noCharacters">
+      <mat-card *ngFor="let character of paginatedCharacters"  class="example-card enlarge-on-hover" appearance="outlined">
+        <a [href]="'description/character/' + character.id" >
+          <img mat-card-image [src]="character.image" alt="{{ character.name }}" />
+          <mat-card-content>
+            <p>Nombre: {{ character.name }}</p>
+            <p>Estatus: {{ translateStatus(character.status) }}</p>
+            <p>Genero: {{ translateGender(character.gender) }}
+          </mat-card-content>
+        </a>
+      </mat-card>
+    </ng-container>
+    <ng-template #noCharacters>
+    <p class="no-results">wubba lubba dub dub <br> no se encontraron resultados</p>
+    </ng-template>
+  </div>
+</section>

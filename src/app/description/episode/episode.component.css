@@ -1,0 +1,87 @@
+.container {
+  margin-top: 5vw;
+  margin-bottom: 10vw;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 6));
+  }
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.carousel-item a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.carousel-item a:hover{
+  text-decoration: none;
+  color:inherit;
+  cursor: default;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.carousel-item p {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 1.25rem; 
+  text-align: center;
+}
+
+h2, p {
+  font-family: "Comic Sans MS", sans-serif;
+  text-align: center; 
+  font-size: 2rem; 
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.carousel-container:hover .carousel {
+  animation-play-state: paused;
+}

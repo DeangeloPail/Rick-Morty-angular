@@ -1,0 +1,63 @@
+.character-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.character-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4vw;
+}
+
+.character-name {
+  text-align: center;
+  font-size: 3rem;
+  font-family: Comic Sans MS;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.character-image {
+  width: 20vw;
+  height: auto;
+  border-radius: 2rem;
+  margin-right: 2rem;
+}
+
+.character-details {
+  margin-left: 5vw;
+  font-family: Comic Sans MS;
+  font-size: 2rem;
+}
+
+.character-location a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.character-location a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .character-info {
+    flex-direction: column;
+  }
+
+  .character-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 80%;
+  }
+
+  .character-details {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+}
